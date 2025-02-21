@@ -451,7 +451,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: a65d0000
     m_LastClickedID: 23974
-    m_ExpandedIDs: 00000000a45d0000
+    m_ExpandedIDs: 00000000ae5d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,7 +479,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a45d0000
+    m_ExpandedIDs: 00000000ae5d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,9 +619,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7cf9ffff
-      m_LastClickedID: -1668
-      m_ExpandedIDs: 2efbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2efbffff085d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -637,7 +637,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 3}
+        m_ClientGUIView: {fileID: 7}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1014,9 +1014,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.2990229, y: -1.0630327, z: -0.96474016}
+    m_Target: {x: -4.058412, y: -0.6284716, z: 4.598467}
     speed: 2
-    m_Value: {x: 1.2990229, y: -1.0630327, z: -0.96474016}
+    m_Value: {x: -4.058412, y: -0.6284716, z: 4.598467}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1062,13 +1062,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.055096883, y: 0.92488915, z: -0.14718038, w: -0.3462307}
+    m_Target: {x: -0.017087242, y: 0.97285956, z: -0.076340616, w: -0.2177536}
     speed: 2
-    m_Value: {x: -0.055097066, y: 0.92489225, z: -0.14718087, w: -0.34623185}
+    m_Value: {x: -0.0172018, y: 0.97253567, z: -0.076315194, w: -0.21921352}
   m_Size:
-    m_Target: 10.958273
+    m_Target: 17.665627
     speed: 2
-    m_Value: 10.958273
+    m_Value: 16.904905
   m_Ortho:
     m_Target: 0
     speed: 2
