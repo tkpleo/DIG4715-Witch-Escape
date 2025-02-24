@@ -1632,7 +1632,7 @@ GameObject:
   - component: {fileID: 1069625340}
   - component: {fileID: 1069625339}
   - component: {fileID: 1069625338}
-  - component: {fileID: 1069625337}
+  - component: {fileID: 1069625343}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1640,20 +1640,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1069625337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069625336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d105fa9db37da740b9fcb998adc1dcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  RotateSpeed: 150
 --- !u!54 &1069625338
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1770,6 +1756,27 @@ Transform:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1069625343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069625336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d30c8d3d788e34f9135024b5578c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 5
+  sprintMultiplier: 2
+  jumpForce: 2
+  groundCheckDistance: 1.5
+  lookSensitivityX: 1
+  lookSensitivityY: 1
+  minYLookAngle: -90
+  maxYLookAngle: 90
+  playerCamera: {fileID: 963194228}
 --- !u!1 &1080761880
 GameObject:
   m_ObjectHideFlags: 0

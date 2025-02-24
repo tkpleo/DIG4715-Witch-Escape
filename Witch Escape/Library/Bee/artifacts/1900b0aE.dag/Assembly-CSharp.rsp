@@ -359,6 +359,7 @@
 "Assets/Scripts/CameraFollow.cs"
 "Assets/Scripts/EnemyMovement.cs"
 "Assets/Scripts/ItemPickup.cs"
+"Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerMovement.cs"
 -langversion:9.0
 /deterministic
