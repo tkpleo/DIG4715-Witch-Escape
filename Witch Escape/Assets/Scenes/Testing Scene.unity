@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 492719918}
   - component: {fileID: 492719923}
   - component: {fileID: 492719924}
+  - component: {fileID: 492719925}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -731,7 +732,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -798,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 492719917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.06, y: 1, z: -51.39}
+  m_LocalPosition: {x: -43.2, y: 1, z: -51.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -839,6 +840,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 1069625342}
+--- !u!114 &492719925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492719917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7037468bd77076442a33646691ba0962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 8
+  angle: 100
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  canSeePlayer: 0
 --- !u!1 &648937070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,9 +1739,9 @@ GameObject:
   - component: {fileID: 1069625339}
   - component: {fileID: 1069625338}
   - component: {fileID: 1069625343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
