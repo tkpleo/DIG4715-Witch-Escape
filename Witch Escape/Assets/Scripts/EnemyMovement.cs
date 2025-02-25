@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        setDestination();
+        //setDestination();
 
        /* startPoints = new Vector3[]
         {
@@ -42,18 +42,18 @@ public class EnemyMovement : MonoBehaviour
             (startPoints[0], endPoints[0]) = (endPoints[0], startPoints[0]);
         }*/
 
-        if(agent.remainingDistance < .05f)
+        /*if(agent.remainingDistance < .05f)
         {
             setDestination();
-        }
+        }*/
 
     }
 
-    void setDestination()
+    /*void setDestination()
     {
         var randomPos = new Vector3(Random.Range(0, -50), 0, Random.Range(-43, -55));
         agent.destination = randomPos;
-    }
+    }*/
 
     void OnTriggerEnter(Collider other)
     {

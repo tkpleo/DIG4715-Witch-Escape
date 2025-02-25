@@ -2,25 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyFieldOfView : MonoBehaviour
 {
-    public float radius;
+    public float radius; // field of view radius around player
     [Range(0, 360)]
-    public float angle;
+    public float angle; // viewing angle of enemy
+    private float m_Distance;
 
-    public GameObject playerRef;
+    public GameObject playerRef; // object enemy is looking for
+    private NavMeshAgent m_Agent; // NavMesh variable for enemy
 
-    public LayerMask targetMask;
-    public LayerMask obstructionMask;
+    public LayerMask targetMask; // layer of what the enemy targets
+    public LayerMask obstructionMask; // layer of objects that block the enmey's view
 
-    public bool canSeePlayer;
+    public bool canSeePlayer; // if the player is in the enemy's field of view
 
     // Start is called before the first frame update
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
+        m_Agent = GetComponent<NavMeshAgent>();
     }
 
     private IEnumerator FOVRoutine()
@@ -34,11 +39,12 @@ public class EnemyFieldOfView : MonoBehaviour
         }
     }
 
+    // Function for enemy's feild of view
     private void FieldOfViewCheck()
     {
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
-        if(rangeChecks.Length != 0)
+        if (rangeChecks.Length != 0) // checking if the player is in the given range of the enemy
         {
             Transform target = rangeChecks[0].transform;
             Vector3 directionToTarget = (target.position - transform.position).normalized;
@@ -46,14 +52,19 @@ public class EnemyFieldOfView : MonoBehaviour
             if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                m_Distance = Vector3.Distance(m_Agent.transform.position, target.position);
 
-                if(!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask)) // raycast vision of the enmey
                 {
                     canSeePlayer = true;
+                    m_Agent.destination = target.position; // if seen move towards the player
+                    //Debug.Log("Player detected");
+
                 }
                 else
                 {
                     canSeePlayer = false;
+                    Debug.Log("Player lost");
                 }
             }
             else
@@ -64,6 +75,25 @@ public class EnemyFieldOfView : MonoBehaviour
             canSeePlayer = false;
         }
     }
+
+    // Function for killing the player
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Player")
+        {
+            Debug.Log("Player is killed");
+        }
+    }
+
+    // check to see if the player is alive
+    void OnTriggerExit(Collider other)
+    {
+        if(other.name == "Player")
+        {
+            Debug.Log("Player is alive");
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
