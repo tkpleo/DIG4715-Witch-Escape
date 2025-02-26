@@ -88,7 +88,6 @@ public class PlayerController : MonoBehaviour
 
     private void Crouch() 
     { 
-        var positionChange = new Vector3(1f, 1.6f, 1f);
         Vector3 temp = this.transform.position;
         if (Input.GetAxis("Crouch") > 0)
         {
