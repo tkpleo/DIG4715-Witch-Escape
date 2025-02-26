@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
+    public float crouchSpeed = .6f;
+    public float crouchHeight = .7f;
+    public float normalHeight = 1f;
     public float sprintMultiplier = 2f;
     public float jumpForce = 2.0f;
     public float groundCheckDistance = 1.5f;
@@ -36,7 +39,11 @@ public class PlayerController : MonoBehaviour
     {
         var dir = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        if (Input.GetAxis("Sprint") > 0)
+        if (Input.GetAxis("Crouch") > 0)
+        {
+            this.transform.Translate(dir * (walkSpeed * crouchSpeed) * Time.deltaTime);
+        }
+        else if (Input.GetAxis("Sprint") > 0)
         {
             this.transform.Translate(dir * (walkSpeed * sprintMultiplier) * Time.deltaTime);
         }
@@ -81,7 +88,29 @@ public class PlayerController : MonoBehaviour
 
     private void Crouch() 
     { 
-    
+        var positionChange = new Vector3(1f, 1.6f, 1f);
+        Vector3 temp = this.transform.position;
+        if (Input.GetAxis("Crouch") > 0)
+        {
+            this.transform.localScale = new Vector3 (1f, crouchHeight, 1f);  
+            temp.y = .83f;  
+            this.transform.position = temp;  
+        }
+        else 
+        {
+            this.transform.localScale = new Vector3 (1f, normalHeight, 1f);
+            temp.y = 1.33f;  
+            this.transform.position = temp; 
+        }
+    }
+
+    bool isCrouched()
+    {
+        if (Input.GetButtonDown("Crouch"))
+        {
+            return true;
+        }
+        return false;
     }
 
     void OnTriggerStay(Collider _other) 
