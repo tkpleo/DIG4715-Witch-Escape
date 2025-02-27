@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SweetCarnageMain.unity
+    guid: b181d576b53a3264688a8dfcef26b5fb
   m_configObjects: {}

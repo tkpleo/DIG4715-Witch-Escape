@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Transform playerCamera;
     private Vector3 velocity;
     private float verticalRotation = 0f;
+    public int heightSet = 0;
     Rigidbody rb;
 
     // Start is called before the first frame update
@@ -87,19 +88,26 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Crouch() 
-    { 
+    {
+        
         Vector3 temp = this.transform.position;
-        if (Input.GetAxis("Crouch") > 0)
+        if ((Input.GetAxis("Crouch") > 0 && heightSet == 0))
         {
             this.transform.localScale = new Vector3 (1f, crouchHeight, 1f);  
             temp.y = .83f;  
-            this.transform.position = temp;  
+            this.transform.position = temp;
+            heightSet = 1;
         }
-        else 
+        else if ((Input.GetAxis("Crouch") <= 0 && heightSet == 1))
         {
             this.transform.localScale = new Vector3 (1f, normalHeight, 1f);
             temp.y = 1.33f;  
-            this.transform.position = temp; 
+            this.transform.position = temp;
+            heightSet = 0;
+        }
+        else
+        {
+            return;
         }
     }
 
