@@ -70,8 +70,8 @@ crashlytics-build.properties
 /Witch*Escape/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+/Witch*Escape/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/Witch*Escape/[Aa]ssets/[Ss]treamingAssets/aa/*
 Witch Escape/.vscode/extensions.json
 Witch Escape/Library/Bee/artifacts/mvdfrm/UnityEditor.CoreModule.dll_9E95A32F3557F182.mvfrm
 Witch Escape/Library/Bee/artifacts/mvdfrm/UnityEditor.CoreModule.dll_CCA55A55ED524857.mvfrm
