@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -394,7 +394,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Materials/2D_Sprites
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -402,16 +402,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Materials/2D_Sprites
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\makay\Documents\GitHub\DIG4715-Witch-Escape\Witch Escape
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 78.20001}
-    m_SelectedIDs: ae210000
-    m_LastClickedID: 8622
-    m_ExpandedIDs: 00000000b6610000c4610000c6610000d87d000000ca9a3bffffff7f
+    m_SelectedIDs: 36680000
+    m_LastClickedID: 26678
+    m_ExpandedIDs: 00000000e66200000a6300000c63000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -439,7 +439,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b6610000
+    m_ExpandedIDs: 00000000e6620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -579,9 +579,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 3cb6fefffab6feffe4bdfeff7a8fffffb6f4ffff48f5ffffbef5ffff34f6ffffaaf6fffff8f6fffff8f7ffffd0f8ffff84faffffee7b0000a4ab0000
+      m_SelectedIDs: 72afffff
+      m_LastClickedID: -20622
+      m_ExpandedIDs: e0f7ffff30fbffff066400004c6400000c660000ce660000f0660000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -974,9 +974,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -7.359135, y: -9.271197, z: -87.437515}
+    m_Target: {x: -15.162948, y: -0.468426, z: -27.741552}
     speed: 2
-    m_Value: {x: -7.359135, y: -9.271197, z: -87.437515}
+    m_Value: {x: -15.162948, y: -0.468426, z: -27.741552}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1022,13 +1022,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.00048180064, y: -0.9961414, z: 0.08868944, w: 0.0047576134}
+    m_Target: {x: 0.0028940055, y: 0.99134207, z: -0.13040942, w: 0.021446334}
     speed: 2
-    m_Value: {x: 0.00058817933, y: -0.9960422, z: 0.08868054, w: 0.0059524984}
+    m_Value: {x: 0.0028936667, y: 0.991226, z: -0.13039416, w: 0.021443823}
   m_Size:
-    m_Target: 43.565582
+    m_Target: 6.455313
     speed: 2
-    m_Value: 43.565582
+    m_Value: 6.455313
   m_Ortho:
     m_Target: 0
     speed: 2
