@@ -5,32 +5,48 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
-    public float crouchSpeed = .6f;
-    public float crouchHeight = .7f;
-    public float normalHeight = 1f;
     public float sprintMultiplier = 2f;
+
+    public float gravity = -9.8f;
     public float jumpForce = 2.0f;
     public float groundCheckDistance = 1.5f;
+
     public float lookSensitivityX = 1f;
     public float lookSensitivityY = 1f;
     public float minYLookAngle = -90f;
     public float maxYLookAngle = 90f;
+    private float verticalRotation = 0f;
+
     public Transform playerCamera;
     private Vector3 velocity;
-    private float verticalRotation = 0f;
-    public int heightSet = 0;
-    Rigidbody rb;
+    CharacterController characterController;
+
+    private bool isCrouching = false;
+    public float normalHeight = 2f;
+    public float crouchHeight = 1f;
+    public float crouchSpeed = 2f;
+    public Vector3 offset;
+    public float upCheckDistance = 2f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        velocity.y += gravity * Time.deltaTime;
+        characterController.Move(velocity * Time.deltaTime);
+
+        if (isGrounded() && velocity.y < 0) 
+        {
+            velocity.y = -1f;
+        }
+
         Move();
         Jump();
         Crouch();
@@ -38,20 +54,12 @@ public class PlayerController : MonoBehaviour
 
     private void Move() 
     {
-        var dir = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        if (Input.GetAxis("Crouch") > 0)
-        {
-            this.transform.Translate(dir * (walkSpeed * crouchSpeed) * Time.deltaTime);
-        }
-        else if (Input.GetAxis("Sprint") > 0)
-        {
-            this.transform.Translate(dir * (walkSpeed * sprintMultiplier) * Time.deltaTime);
-        }
-        else 
-        {
-            this.transform.Translate(dir * walkSpeed * Time.deltaTime);
-        }
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        characterController.Move(move * walkSpeed * Time.deltaTime);
         
 
         if (playerCamera != null) 
@@ -72,7 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
         }
         
     }
@@ -87,37 +95,45 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    private void Crouch() 
+    bool isDownUnda()
     {
-        
-        Vector3 temp = this.transform.position;
-        if ((Input.GetAxis("Crouch") > 0 && heightSet == 0))
-        {
-            this.transform.localScale = new Vector3 (1f, crouchHeight, 1f);  
-            temp.y = .83f;  
-            this.transform.position = temp;
-            heightSet = 1;
-        }
-        else if ((Input.GetAxis("Crouch") <= 0 && heightSet == 1))
-        {
-            this.transform.localScale = new Vector3 (1f, normalHeight, 1f);
-            temp.y = 1.33f;  
-            this.transform.position = temp;
-            heightSet = 0;
-        }
-        else
-        {
-            return;
-        }
-    }
-
-    bool isCrouched()
-    {
-        if (Input.GetButtonDown("Crouch"))
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.up, out hit, upCheckDistance))
         {
             return true;
         }
         return false;
+    }
+
+    private void Crouch() 
+    {
+        if (Input.GetButtonDown("Crouch")) 
+        { 
+            isCrouching = !isCrouching;
+        }
+
+
+        if (isCrouching == true)
+        {
+            characterController.height = characterController.height - crouchSpeed * Time.deltaTime;
+            if (characterController.height <= crouchHeight) 
+            {
+                characterController.height = crouchHeight;
+            }
+        }
+        else if (isCrouching == false && isDownUnda() == false)
+        {
+            characterController.height = characterController.height + crouchSpeed * Time.deltaTime;
+
+            if (characterController.height < normalHeight)
+            {
+                transform.position = transform.position + offset * Time.deltaTime;
+            }
+            if (characterController.height >= normalHeight)
+            {
+                characterController.height = normalHeight;
+            }
+        }
     }
 
     void OnTriggerStay(Collider _other) 
