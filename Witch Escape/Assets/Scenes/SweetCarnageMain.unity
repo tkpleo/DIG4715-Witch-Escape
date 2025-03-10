@@ -4399,8 +4399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  range: 100
-  centrePoint: {fileID: 648937071}
+  range: 75
+  centrePoint: {fileID: 1629971936}
 --- !u!1 &476208900
 GameObject:
   m_ObjectHideFlags: 0
@@ -10199,6 +10199,7 @@ MonoBehaviour:
   crouchHeight: 0.5
   crouchSpeed: 5
   offset: {x: 0, y: 1.5, z: 0}
+  upCheckDistance: 2
 --- !u!143 &1069625344
 CharacterController:
   m_ObjectHideFlags: 0
