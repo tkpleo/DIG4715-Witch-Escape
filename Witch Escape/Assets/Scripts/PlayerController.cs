@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit(Collider _other)
     {
-        if (_other.tag == "DeadZone")
+        if (_other.tag == "Deadzone")
         {
             gameObject.tag = "Player (Detectable)";
         }
