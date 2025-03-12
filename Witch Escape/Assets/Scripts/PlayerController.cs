@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public float gravity = -9.8f;
     public float jumpForce = 2.0f;
-    public float groundCheckDistance = 1.5f;
+    public float groundCheckDistance = 1.0003f;
 
     public float lookSensitivityX = 1f;
     public float lookSensitivityY = 1f;
@@ -42,10 +42,10 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
 
-        if (isGrounded() && velocity.y < 0) 
-        {
-            velocity.y = -1f;
-        }
+        //if (isGrounded() && velocity.y < 0) 
+        //{
+        //    velocity.y = -1f;
+       // }
 
         Move();
         Jump();
@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+
     bool isDownUnda()
     {
         RaycastHit hit;
@@ -116,6 +117,10 @@ public class PlayerController : MonoBehaviour
         if (isCrouching == true)
         {
             characterController.height = characterController.height - crouchSpeed * Time.deltaTime;
+            if (characterController.height > normalHeight)
+            {
+                transform.position = transform.position - offset * Time.deltaTime;
+            }
             if (characterController.height <= crouchHeight) 
             {
                 characterController.height = crouchHeight;
