@@ -19,6 +19,9 @@ public class EnemyFieldOfView : MonoBehaviour
     public LayerMask obstructionMask; // layer of objects that block the enmey's view
 
     public bool canSeePlayer; // if the player is in the enemy's field of view
+    
+    public bool cookieSound;
+    public Vector3 cookiePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -57,9 +60,9 @@ public class EnemyFieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask)) // raycast vision of the enmey
                 {
                     canSeePlayer = true;
+                    cookieSound = false;
                     m_Agent.destination = target.position; // if seen move towards the player
                     //Debug.Log("Player detected");
-
                 }
                 else
                 {
@@ -70,9 +73,19 @@ public class EnemyFieldOfView : MonoBehaviour
             else
                 canSeePlayer = false;
         }
+        else if (cookieSound) 
+        {
+            m_Agent.destination = cookiePosition;
+
+            if (Vector3.Distance(m_Agent.transform.position, cookiePosition) < 2)
+            { 
+                cookieSound = false;
+            }
+        }
         else if (canSeePlayer)
         {
             canSeePlayer = false;
+            cookieSound = false;
         }
     }
 
