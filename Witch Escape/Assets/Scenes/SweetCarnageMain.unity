@@ -23504,7 +23504,7 @@ Transform:
   m_GameObject: {fileID: 1069625336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -5.99, y: 1.58, z: 9.45}
+  m_LocalPosition: {x: -5.99, y: 1.0002, z: 9.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23527,7 +23527,7 @@ MonoBehaviour:
   sprintMultiplier: 2
   gravity: -9.8
   jumpForce: 2
-  groundCheckDistance: 0.5
+  groundCheckDistance: 1.5
   lookSensitivityX: 1
   lookSensitivityY: 1
   minYLookAngle: -90
@@ -23535,7 +23535,7 @@ MonoBehaviour:
   playerCamera: {fileID: 963194228}
   normalHeight: 2
   crouchHeight: 0.7
-  crouchSpeed: 1.5
+  crouchSpeed: 1
   offset: {x: 0, y: 2, z: 0}
   upCheckDistance: 2
 --- !u!143 &1069625344
