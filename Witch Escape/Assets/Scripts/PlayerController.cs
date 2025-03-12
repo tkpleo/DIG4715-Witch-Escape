@@ -6,6 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
     public float sprintMultiplier = 2f;
+    public float sprintTimer = 3f;
+    public float timeSinceSprint = 0f;
+    public float sprintWaitTime = 5f;
+    public float timeSprinting = 0f;
+    public bool isSprinting = false;
 
     public float gravity = -9.8f;
     public float jumpForce = 2.0f;
@@ -46,8 +51,11 @@ public class PlayerController : MonoBehaviour
         //{
         //    velocity.y = -1f;
        // }
-
-        Move();
+       if (!isSprinting) 
+       { 
+            Move(); 
+       }
+        Sprint();
         Jump();
         Crouch();
     }
@@ -59,8 +67,16 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        characterController.Move(move * walkSpeed * Time.deltaTime);
-        
+        timeSinceSprint += 1 * Time.deltaTime;
+
+        if (Input.GetButtonDown("Sprint") && timeSinceSprint >= sprintWaitTime)
+        {
+            isSprinting = true;
+        }
+        else 
+        {
+            characterController.Move(move * walkSpeed * Time.deltaTime);
+        }
 
         if (playerCamera != null) 
         {
@@ -74,6 +90,42 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(Vector3.up * mouseX);
         }
         
+    }
+
+    private void Sprint()
+    {
+        if (isSprinting)
+        {
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            if (timeSprinting <= sprintTimer)
+            {
+                characterController.Move(move * walkSpeed * Time.deltaTime * sprintMultiplier);
+                timeSprinting += 1 * Time.deltaTime;
+            }
+            else if (timeSprinting > sprintTimer)
+            {
+                timeSinceSprint = 0f;
+                timeSprinting = 0f;
+                isSprinting = false;
+                characterController.Move(move * walkSpeed * Time.deltaTime);
+            }
+        }
+
+        if (playerCamera != null)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * lookSensitivityX;
+            float mouseY = Input.GetAxis("Mouse Y") * lookSensitivityY;
+
+            verticalRotation -= mouseY;
+            verticalRotation = Mathf.Clamp(verticalRotation, minYLookAngle, maxYLookAngle);
+
+            playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * mouseX);
+        }
     }
 
     private void Jump() 

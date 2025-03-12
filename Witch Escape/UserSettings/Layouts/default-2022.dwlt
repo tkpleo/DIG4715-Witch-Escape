@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -324,7 +324,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\luxen\OneDrive\Documents\GitHub\DIG4715-Witch-Escape\Witch
     Escape
@@ -340,9 +340,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 326c0000
-    m_LastClickedID: 27698
-    m_ExpandedIDs: 00000000326c000000ca9a3b
+    m_SelectedIDs: 146b0000
+    m_LastClickedID: 27412
+    m_ExpandedIDs: 00000000de6a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -370,7 +370,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000326c0000
+    m_ExpandedIDs: 00000000de6a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -510,9 +510,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0ef5ffff046300008e640000
+      m_SelectedIDs: 7c620000
+      m_LastClickedID: 25212
+      m_ExpandedIDs: 30fbffffae5e00006e600000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -866,9 +866,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.8248506, y: 0.9345672, z: -4.402545}
+    m_Target: {x: -5.955, y: 1.6590002, z: 9.455999}
     speed: 2
-    m_Value: {x: -6.8248506, y: 0.9345672, z: -4.402545}
+    m_Value: {x: -5.955, y: 1.6590002, z: 9.455999}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -914,13 +914,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.007686267, y: -0.9318787, z: 0.36228764, w: 0.017155796}
+    m_Target: {x: -0.15087898, y: -0.82932204, z: 0.46455836, w: -0.2713845}
     speed: 2
-    m_Value: {x: 0.007142815, y: -0.9319017, z: 0.3622981, w: 0.015757931}
+    m_Value: {x: -0.15087871, y: -0.82932055, z: 0.46455753, w: -0.27138403}
   m_Size:
-    m_Target: 7.711166
+    m_Target: 12.124355
     speed: 2
-    m_Value: 8.074519
+    m_Value: 12.124355
   m_Ortho:
     m_Target: 0
     speed: 2
