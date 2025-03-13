@@ -1,59 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public NavMeshAgent agent;
+    public float range;
 
-    public Vector3[] startPoints;
-    public Vector3[] endPoints;
-    public float t = 0;
-    public float speed = 4f;
+    public Transform centrePoint;
 
-    // Start is called before the first frame update
     void Start()
     {
-        startPoints = new Vector3[]
-        {
-            new Vector3(-13, 1, -51)
-        };
-
-        endPoints = new Vector3[]
-        {
-            new Vector3(-44, 1, -51)
-        };
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-        t += Time.deltaTime * speed / Vector3.Distance(startPoints[0], endPoints[0]);
-        float easedT = Mathf.SmoothStep(0, 1, t);
-        this.transform.position = Vector3.Lerp(startPoints[0], endPoints[0], easedT);
-
-        if (t >= 1f)
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            t = 0;
-            (startPoints[0], endPoints[0]) = (endPoints[0], startPoints[0]);
+            Vector3 point;
+            if (RandomPoint(centrePoint.position, range, out point))
+            {
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+                agent.SetDestination(point);
+            }
         }
-
     }
 
-    void OnTriggerEnter(Collider other)
+    bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
-        if(other.name == "Player")
+        Vector3 randomPoint = center + Random.insideUnitSphere * range;
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
         {
-            Debug.Log("Player detected - attack!");
-        }   
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.name == "Player")
-        {
-            Debug.Log("Player out of range, resume patrol");
+            result = hit.position;
+            Debug.Log("Random Point: " + result);
+            return true;
         }
+
+        result = Vector3.zero;
+        Debug.Log("search for point failed");
+        return false;
+
     }
 
 
