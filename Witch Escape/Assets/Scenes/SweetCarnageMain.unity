@@ -26414,7 +26414,7 @@ PrefabInstance:
     - target: {fileID: 8342027355154043792, guid: f196c755934df6b4ab2a37560df3c657, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 760738740}
     - target: {fileID: 8342027355154043792, guid: f196c755934df6b4ab2a37560df3c657, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
@@ -30863,6 +30863,7 @@ GameObject:
   - component: {fileID: 760738738}
   - component: {fileID: 760738737}
   - component: {fileID: 760738736}
+  - component: {fileID: 760738740}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -30953,6 +30954,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &760738740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760738735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69632cfb972f7604fac654c38613aea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuPanel: {fileID: 1472253885}
 --- !u!1 &764798189
 GameObject:
   m_ObjectHideFlags: 0
@@ -43304,7 +43318,7 @@ PrefabInstance:
     - target: {fileID: 6459910182130659934, guid: d5fdbfed62bf05147b383738b03022c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 760738740}
     - target: {fileID: 6459910182130659934, guid: d5fdbfed62bf05147b383738b03022c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
@@ -63765,7 +63779,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472253886}
-  - component: {fileID: 1472253888}
   m_Layer: 0
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -63792,20 +63805,6 @@ Transform:
   - {fileID: 1609871848}
   m_Father: {fileID: 760738739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1472253888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472253885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69632cfb972f7604fac654c38613aea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1472253885}
-  isPaused: 0
 --- !u!1 &1473643627
 GameObject:
   m_ObjectHideFlags: 0
@@ -70018,7 +70017,7 @@ PrefabInstance:
     - target: {fileID: 4308036555930347310, guid: 02651b852dec6b5479578933630fb5ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 760738740}
     - target: {fileID: 4308036555930347310, guid: 02651b852dec6b5479578933630fb5ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Quit
