@@ -6,6 +6,7 @@ public class CookieCrumbs : MonoBehaviour
 {
     public GameObject witch;
     public Vector3 position;
+    public AudioClip collectedClip;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class CookieCrumbs : MonoBehaviour
             position = _other.transform.position;
             witch.GetComponent<EnemyFieldOfView>().cookieSound = true;
             witch.GetComponent<EnemyFieldOfView>().cookiePosition = position;
+            _other.GetComponent<PlayerController>().PlaySound(collectedClip);
             Destroy(gameObject);
         }
         
