@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         Sprint();
         Jump();
         Crouch();
+        Exit();
     }
 
     private void Move() 
@@ -224,5 +225,13 @@ public class PlayerController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    void Exit()
+    {
+        if (Input.GetButtonDown("Close"))
+        {
+            Application.Quit();
+        }
     }
 }
