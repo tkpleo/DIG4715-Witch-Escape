@@ -16,7 +16,7 @@ public class StartGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("SweetCarnageMain");
+            SceneManager.LoadScene(1);
         }
     }
 }
