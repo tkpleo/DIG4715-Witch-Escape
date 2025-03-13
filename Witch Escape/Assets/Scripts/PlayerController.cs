@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float walkSpeed = 5f;
+    public float walkSpeed = 4f;
     public float sprintMultiplier = 2f;
-    public float sprintTimer = 3f;
+    public float sprintTimer = 1f;
     public float timeSinceSprint = 0f;
     public float sprintWaitTime = 5f;
     public float timeSprinting = 0f;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public float gravity = -9.8f;
     public float jumpForce = 2.0f;
-    public float groundCheckDistance = 1.0003f;
+    public float groundCheckDistance = 1.5f;
 
     public float lookSensitivityX = 1f;
     public float lookSensitivityY = 1f;
@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     private bool isCrouching = false;
     public float normalHeight = 2f;
     public float crouchHeight = 1f;
-    public float crouchSpeed = 2f;
+    public float crouchSpeed = 10f;
+    public float crouchMultiplier = .5f;
     public Vector3 offset;
     public float upCheckDistance = 2f;
 
@@ -67,14 +68,19 @@ public class PlayerController : MonoBehaviour
 
     private void Move() 
     {
+        
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
 
         timeSinceSprint += 1 * Time.deltaTime;
-
-        if (Input.GetButtonDown("Sprint") && timeSinceSprint >= sprintWaitTime)
+        if (isCrouching)
+        {           
+            timeSinceSprint += 1 * Time.deltaTime;
+            characterController.Move(move * walkSpeed * Time.deltaTime * crouchMultiplier);
+        }
+        else if (Input.GetButtonDown("Sprint") && timeSinceSprint >= sprintWaitTime)
         {
             isSprinting = true;
         }
@@ -186,7 +192,6 @@ public class PlayerController : MonoBehaviour
         else if (isCrouching == false && isDownUnda() == false)
         {
             characterController.height = characterController.height + crouchSpeed * Time.deltaTime;
-
             if (characterController.height < normalHeight)
             {
                 transform.position = transform.position + offset * Time.deltaTime;

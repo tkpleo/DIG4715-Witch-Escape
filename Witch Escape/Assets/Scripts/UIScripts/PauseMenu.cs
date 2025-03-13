@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("SCStartScreen");
+        SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
 
