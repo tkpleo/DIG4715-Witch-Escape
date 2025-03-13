@@ -26,7 +26,7 @@ public class EnemyFieldOfView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        playerRef = GameObject.FindGameObjectWithTag("Player (Detectable)");
         StartCoroutine(FOVRoutine());
         m_Agent = GetComponent<NavMeshAgent>();
     }
